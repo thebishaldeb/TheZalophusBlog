@@ -1,0 +1,25 @@
+{
+  "name": "thezalophusblog",
+  "version": "1.0.0",
+  "description": "A site for bloggers to publish their blogs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebishaldeb/TheZalophusBlog.git"
+  },
+  "author": "\"Bishal Deb <bishaldeb656@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebishaldeb/TheZalophusBlog/issues"
+  },
+  "homepage": "https://github.com/thebishaldeb/TheZalophusBlog#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2"
+  }
+}
