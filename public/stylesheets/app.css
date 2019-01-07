@@ -5,3 +5,7 @@ i.icon {
 .container.main {
     margin: 7.0em;
 }
+.showIm {
+    width: 100%;
+    height: 290px;
+}
