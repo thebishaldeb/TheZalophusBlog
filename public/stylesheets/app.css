@@ -1,11 +1,25 @@
-i.icon {
+i.iconh {
     font-size: 1.7em;
 } 
-
 .container.main {
     margin: 7.0em;
 }
 .showIm {
     width: 100%;
     height: 290px;
+}
+.delete {
+    display: inline;
+    float: right;
+}
+.meta {
+    float: right;
+}
+.readm {
+    padding: 0;
+    width: 132px;
+    height: 35px;
+}
+.iconRead {
+    margin: 0;
 }
