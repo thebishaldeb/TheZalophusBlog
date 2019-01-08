@@ -101,7 +101,10 @@ app.delete("/blogs/:id",function(req, res){
 });
 
 
-
+//DEFAULT PAGW
+app.get("*", function(req, res){
+    res.render("pageNotFound");
+});
 
 app.listen(1234, function(){
     console.log("Your application is running http://localhost:1234/");
