@@ -35,7 +35,7 @@
 * Follow the steps as following in the bash
 
 ```sh
- cd keep-clone
+ cd TheZalophusBlog
 
  npm install
 
@@ -57,7 +57,7 @@
 
 [<img src="https://image.flaticon.com/icons/svg/185/185964.svg" width="35" padding="10">](https://linkedin.com/in/bishal-deb-0322b6148/)
 [<img src="https://image.flaticon.com/icons/svg/185/185981.svg" width="35" padding="10">](https://www.facebook.com/bishal.deb.5811)
-[<img src="https://image.flaticon.com/icons/svg/185/185985.svg" width="35" padding="10">](https://www.instagram.com/the_zalophus/)
+[<img src="https://image.flaticon.com/icons/svg/185/185985.svg" width="35" padding="10">](https://www.instagram.com/zalophus_/)
 
 <br>
 
