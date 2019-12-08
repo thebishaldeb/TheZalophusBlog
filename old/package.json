@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
     "express": "^4.16.4",
     "express-sanitizer": "^1.0.4",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.2"
+    "mongoose": "^5.7.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
   }
 }
