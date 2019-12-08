@@ -50,7 +50,8 @@
 * Contributors are welcome and please comment on the issue before working on it.
 * Create pull requests, submit bugs, suggest new features.
 <br>
-##Todo
+
+## Todo
 * The project uses ejs but we want to replace it React + GraphQL stack which is a new tech and very much in demand.
 
 * Create a folder called New, cd into it and folllow the tutorial and make sure it works.
