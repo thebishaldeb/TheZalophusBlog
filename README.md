@@ -35,7 +35,7 @@
 * Follow the steps as following in the bash
 
 ```sh
- cd TheZalophusBlog
+ cd TheZalophusBlog/Old
 
  npm install
 
