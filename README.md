@@ -52,15 +52,9 @@
 <br>
 
 ## Todo
-* The project uses ejs but we want to replace it React + GraphQL stack which is a new tech and very much in demand.
+* Create a new folder called Old in the repo and move everything except README and LICENSE in that folder.
 
-* Create a folder called New, cd into it and folllow the tutorial and make sure it works.
-* Follow the tutorial
- https://www.youtube.com/watch?v=7giZGFDGnkc&list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_&index=1
-
-* PS - No need to add material-ui for the time being. We will be using a different framework called antd. We just need to see it working for now.
-
-* Also we just need to see it working, no need to add the events or bookings. Simple user model is okay.
+* Update the README after that to cd TheZalophusBlog/Old to see the old site. Make sure the site works even after that.
 
 ## Author
 
