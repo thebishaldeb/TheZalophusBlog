@@ -61,6 +61,7 @@
 
  npm start
 ```
+* Now head over to http://localhost:3000 to see it working
 
 <br>
 
