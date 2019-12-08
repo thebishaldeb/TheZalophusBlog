@@ -51,8 +51,8 @@
 * Create pull requests, submit bugs, suggest new features.
 <br>
 
-## Todo
-* Create a new folder called Old in the repo and move everything except README and LICENSE in that folder.
+## Update
+* cd TheZalophusBlog/Old to see the old site
 
 ## Author
 
