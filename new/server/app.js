@@ -43,9 +43,9 @@ app.use(
 );
 
 //server initialization
-app.listen(3000, ()=>
+app.listen(3002, ()=>
 {
-  console.log('connected to 3000');
+  console.log('connected to 3002');
 })
 
 //connect to mongo database

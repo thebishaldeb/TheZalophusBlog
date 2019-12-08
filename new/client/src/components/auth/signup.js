@@ -25,7 +25,7 @@ const Signup=()=>
             `
         };
 
-        fetch('http://localhost:3000/graphql', {
+        fetch('http://localhost:3002/graphql', {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: {

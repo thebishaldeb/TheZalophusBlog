@@ -32,7 +32,7 @@
 * Clone the repository  
   `git clone https://github.com/<username>/TheZalophusBlog.git`   
   where \< username \> is your username in your bash
-* Follow the steps as following in the bash
+* Follow the steps as following in the bash for old project
 
 ```sh
  cd TheZalophusBlog/Old
@@ -42,6 +42,26 @@
  npm start
 ```
 * Now head over to http://localhost:1234/ to see it working.
+
+* Follow the steps as following in the bash for new project
+```sh
+ cd TheZalophusBlog/new
+ 
+ cd server
+ 
+ npm install
+ 
+ npm start
+
+ cd ..
+
+ cd client
+
+ npm install
+
+ npm start
+```
+* Now head over to http://localhost:3000 to see it working
 
 <br>
 
