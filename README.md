@@ -35,7 +35,7 @@
 * Follow the steps as following in the bash
 
 ```sh
- cd TheZalophusBlog
+ cd TheZalophusBlog/Old
 
  npm install
 
@@ -50,9 +50,6 @@
 * Contributors are welcome and please comment on the issue before working on it.
 * Create pull requests, submit bugs, suggest new features.
 <br>
-
-## Update
-* cd TheZalophusBlog/Old to see the old site
 
 ## Author
 
