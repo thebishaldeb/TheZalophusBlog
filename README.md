@@ -54,8 +54,6 @@
 ## Todo
 * Create a new folder called Old in the repo and move everything except README and LICENSE in that folder.
 
-* Update the README after that to cd TheZalophusBlog/Old to see the old site. Make sure the site works even after that.
-
 ## Author
 
 ### [Bishal Deb](https://github.com/thebishaldeb) ❤
