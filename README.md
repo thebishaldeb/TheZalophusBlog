@@ -55,6 +55,8 @@
  
  npm install
 
+ cd ..
+
  npm run dev
 ```
 * Now head over to http://localhost:3000 to see it working
