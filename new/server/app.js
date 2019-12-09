@@ -39,7 +39,7 @@ app.use(
 
 
 //connect to mongo database
-mongoose.connect(`"mongodb://localhost/thezalophusblog"`)
+mongoose.connect("mongodb://localhost:27017/thezalophusblog",{ useNewUrlParser:true, useUnifiedTopology:true })
 .then((res)=>
 {
     console.log('mongodb connected');
