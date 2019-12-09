@@ -46,7 +46,15 @@
 * Follow the steps as following in the bash for new project
 ```sh
  cd TheZalophusBlog/new
+
+ cd server
  
+ npm install
+  
+ cd ../client
+ 
+ npm install
+
  npm run dev
 ```
 * Now head over to http://localhost:3000 to see it working
