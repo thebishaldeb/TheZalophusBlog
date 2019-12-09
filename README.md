@@ -46,20 +46,18 @@
 * Follow the steps as following in the bash for new project
 ```sh
  cd TheZalophusBlog/new
- 
+
  cd server
  
  npm install
+  
+ cd ../client
  
- npm start
+ npm install
 
  cd ..
 
- cd client
-
- npm install
-
- npm start
+ npm run dev
 ```
 * Now head over to http://localhost:3000 to see it working
 
@@ -67,8 +65,11 @@
 
 ## Contributions 
 
+* TheZalophusBlog/Old is deprecated is currently being moved to REACT + GraphQL. 
+* Please solve issues issues in TheZalophusBlog/New only. 
 * Contributors are welcome and please comment on the issue before working on it.
 * Create pull requests, submit bugs, suggest new features.
+
 <br>
 
 ## Author
