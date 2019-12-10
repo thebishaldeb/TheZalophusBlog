@@ -21,6 +21,12 @@ module.exports=buildSchema(`
         password:String!
     }
 
+    input BlogInput {
+        title:String!
+        image:String!
+        body:String!
+    }
+
     type AuthData {
         userId: ID!
         token: String!
@@ -34,7 +40,9 @@ module.exports=buildSchema(`
     }
 
     type RootMutation {
-        createUser(userInput: UserInput): User
+        createUser(userInput : UserInput) : User
+        createBlog(blogInput : BlogInput) : Blog
+        checkAuth(uid:ID) : String
     }
 
     schema {
