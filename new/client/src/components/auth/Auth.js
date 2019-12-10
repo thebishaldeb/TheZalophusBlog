@@ -7,13 +7,18 @@ class AuthPage extends Component {
     isLogin: true
   };
 
-  static contextType = AuthContext;
-
   constructor(props) {
     super(props);
     this.emailEl = React.createRef();
     this.passwordEl = React.createRef();
   }
+
+  // componentDidMount(){
+  //   const token=localStorage.getItem("token");
+  //   if(token){
+  //     this.props.history.push("/home");
+  //   }
+  // }
 
   switchModeHandler = () => {
     this.setState(prevState => {
@@ -54,7 +59,6 @@ class AuthPage extends Component {
         `
       };
     }
-
     fetch('http://localhost:8000/graphql', {
       method: 'POST',
       body: JSON.stringify(requestBody),
@@ -69,11 +73,18 @@ class AuthPage extends Component {
         return res.json();
       })
       .then(resData => {
-        if(resData.data.login.token){
-          this.context.login(resData.data.login.token, resData.data.login.userId, resData.data.login.tokenExpiration);
+        if(resData.data.login){
+          const { token, userId }=resData.data.login;
+          localStorage.setItem("token", token);
+          localStorage.setItem("uid", userId);
+          this.props.history.push("/home");
+        }
+        else{
+          alert("Error");
         }
       })
       .catch(err => {
+        alert("Error");
         console.log(err);
       });
   };
