@@ -6,7 +6,7 @@ var expressSanitizer= require("express-sanitizer"),
     app             = express();
 
 //APP CONFIG
-mongoose.connect("mongodb://localhost/thezalophusblog")    
+mongoose.connect("mongodb://localhost:27017/thezalophusblog",{ useUnifiedTopology:true, useNewUrlParser:true })    
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));

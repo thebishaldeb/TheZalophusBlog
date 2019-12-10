@@ -7,6 +7,15 @@ module.exports=buildSchema(`
         password: String!
     }
 
+    type Blog {
+        _id:ID!
+        title:String!
+        image:String!
+        body:String!
+        creator:String!
+        created:String!
+    }
+
     input UserInput {
         email:String!
         password:String!
@@ -20,6 +29,7 @@ module.exports=buildSchema(`
 
     type RootQuery {
         user:[User!]!
+        blogs:[Blog!]!
         login(email: String!, password: String!): AuthData!
     }
 

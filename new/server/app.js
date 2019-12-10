@@ -2,11 +2,12 @@ const express=require('express');
 const graphqlHttp=require('express-graphql');
 const mongoose=require('mongoose');
 
-
 //get graphql resolvers and schema
 const graphqlSchema=require('./graphql/schema/index');
-const graphqlResolvers=require('./graphql/resolvers/index');
+const graphqlResolvers=require('./graphql/resolvers/rootResolver');
 
+//get jsonwebtoken auth checking module
+const isAuth=require('./middleware/is-auth');
 
 //initialize express
 const app = express();
@@ -14,7 +15,7 @@ const app = express();
 //set all middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(isAuth);
 
 //allow header and options method
 app.use((req, res, next) => {
