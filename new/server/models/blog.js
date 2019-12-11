@@ -20,8 +20,8 @@ const BlogSchema=new Schema({
         required:true
     },
     created:{
-        type:Date,
-        default:Date.now
+        type:String,
+        required:true
     }
 })
 
