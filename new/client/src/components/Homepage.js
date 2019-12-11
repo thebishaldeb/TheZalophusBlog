@@ -1,15 +1,19 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect, useState } from 'react';
 import {Redirect} from 'react-router-dom'
 import AuthContext from '../context/auth-context'
+import NavbarComponent from './navbar/navbar';
+import Blog from './blog/blog';
 
 const Homepage=(props)=>
 {
+  const [blogs, setBlogs]=useState([]);
   const getData=()=>{
     const token=localStorage.getItem("token");
     const requestBody={
       query:`
       query {
         blogs {
+          _id
           title
           image
           body
@@ -30,11 +34,12 @@ const Homepage=(props)=>
     }).then(res => {
       return res.json();
     }).then((res)=>{
-      console.log(res);
       if(res.errors && res.errors[0].message==="Unauthenticated"){
         props.history.push("/");
         // throw new Error("Unauthenticated user");
       }
+      console.log(res);
+      setBlogs(res.data.blogs);
     }).catch((err)=>{
       console.log(err);
     })
@@ -48,11 +53,11 @@ const Homepage=(props)=>
   
   useEffect(()=>{
     getData();
-  })
+  },[])
   return(
     <>
-      Homepage
-      <button onClick={ logout }>Logout</button>
+    <NavbarComponent props={ props } />
+    <Blog blogs={ blogs } />
     </>
   )
 }
