@@ -4,7 +4,7 @@ import './Auth.css';
 class AuthPage extends Component {
   state = {
     isLogin: true,
-    profilepic:'',
+    image:'',
     fname:'',
     lname:'',
     username:'',
@@ -29,7 +29,7 @@ class AuthPage extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    const { fname, lname,username,profilepic, dpas }=this.state;
+    const { fname, lname,username,image, dpas }=this.state;
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
 
@@ -57,7 +57,7 @@ class AuthPage extends Component {
       requestBody = {
         query: `
           mutation {
-            createUser(userInput: { fname:"${fname}", lname:"${lname}", username:"${username}", email: "${email}", password: "${password}",profilepic:"${profilepic}"}) {
+            createUser(userInput: { fname:"${fname}", lname:"${lname}", username:"${username}", email: "${email}", password: "${password}",profilepic:"${image}"}) {
               fname
             }
           }
@@ -117,7 +117,7 @@ class AuthPage extends Component {
     convertTobase64(e.target.files[0])
     .then((res)=>{
       console.log(res);
-      this.setState({ profilepic:res })
+      this.setState({ image:res })
     })
   }
 

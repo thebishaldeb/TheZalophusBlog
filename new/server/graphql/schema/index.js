@@ -11,7 +11,7 @@ const schema=buildSchema(`
         username:String!
         email: String!
         password: String!
-        profilepic:String!
+        image:String!
     }
 
     type Blog {
@@ -35,7 +35,7 @@ const schema=buildSchema(`
         username:String!
         email:String!
         password:String!
-        profilepic:String!
+        image:String!
     }
 
     input BlogInput {
