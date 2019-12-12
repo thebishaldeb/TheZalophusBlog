@@ -22,6 +22,7 @@ module.exports = {
             username:args.userInput.username,
             email: args.userInput.email,
             password: hashedPassword,
+            birthDate:args.userInput.birthDate,
             image:args.userInput.image,
           });
           const result = await user.save();

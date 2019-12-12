@@ -8,7 +8,8 @@ class AuthPage extends Component {
     fname:'',
     lname:'',
     username:'',
-    dpas:''
+    dpas:'',
+    birthDate:''
   };
 
   constructor(props) {
@@ -24,19 +25,16 @@ class AuthPage extends Component {
   };
 
   updateInfo=(e)=>{
+    console.log(e.target.value);
     this.setState({ [e.target.name]:e.target.value })
   }
 
   submitHandler = event => {
     event.preventDefault();
-    const { fname, lname,username,image, dpas }=this.state;
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
 
     if (email.trim().length === 0 || password.trim().length === 0) {
-      return;
-    }
-    if(dpas!==password){
       return;
     }
 
@@ -53,11 +51,15 @@ class AuthPage extends Component {
     };
 
     if (!this.state.isLogin) {
+      const { fname, lname,username,image, dpas, birthDate }=this.state;
+      if(dpas!==password){
+        return;
+      }
 
       requestBody = {
         query: `
           mutation {
-            createUser(userInput: { fname:"${fname}", lname:"${lname}", username:"${username}", email: "${email}", password: "${password}",profilepic:"${image}"}) {
+            createUser(userInput: { fname:"${fname}", lname:"${lname}", username:"${username}", email: "${email}", password: "${password}",birthDate:"${birthDate}", image:"${image}"}) {
               fname
             }
           }
@@ -121,59 +123,51 @@ class AuthPage extends Component {
     })
   }
 
-  // upload=()=>{
-  //   let requestBody = {
-  //     query: `
-  //       mutation {
-  //         uploadFile( file:"${this.state.file}" )
-  //       }
-  //     `
-  //   };
-  //   fetch("http://localhost:8000/graphql",{
-  //     method: 'POST',
-  //     body: JSON.stringify(requestBody),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //   .then((res)=>{ return res.json() })
-  //   .then((res)=>{
-  //     console.log(res);
-  //     this.setState({ url:res.data.uploadFile })
-  //   }).catch((err)=>{ console.log(err); })
-  // }
   render() {
     return (
       <>
         <form className="auth-form" onSubmit={this.submitHandler}>
-          <div className="form-control" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+          { this.state.isLogin ? null : <div className="form-control">
             <label htmlFor="fname">First Name</label>
-            <input type="text" id="fname" name="fname" onChange={this.updateInfo} />
-          </div>
-          <div className="form-control mt-1" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+            <input type="text" id="fname" name="fname" onChange={this.updateInfo} required />
+          </div> }
+
+          { this.state.isLogin ? null :  <div className="form-control mt-1">
             <label htmlFor="lname">Last Name</label>
-            <input type="text" id="lname" name="lname" onChange={this.updateInfo} />
-          </div>
-          <div className="form-control mt-1" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+            <input type="text" id="lname" name="lname" onChange={this.updateInfo} required />
+          </div>}
+
+          { this.state.isLogin ? null : <div className="form-control mt-1">
             <label htmlFor="uname">User Name</label>
-            <input type="text" id="uname" name="username" onChange={this.updateInfo} />
-          </div>
+            <input type="text" id="uname" name="username" onChange={this.updateInfo} required />
+            </div> }
+
+
           <div className="form-control mt-1">
             <label htmlFor="email">E-Mail</label>
-            <input type="email" id="email" ref={this.emailEl} />
+            <input type="email" id="email" ref={this.emailEl} required />
           </div>
           <div className="form-control mt-1">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" ref={this.passwordEl} />
+            <input type="password" id="password" ref={this.passwordEl} required />
           </div>
-          <div className="form-control mt-1" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+
+          { this.state.isLogin ? null : 
+          <div className="form-control mt-1">
             <label htmlFor="dpassword">Confirm Password</label>
-            <input type="password" id="dpassword" name="dpas" onChange={this.updateInfo} />
-          </div>
-          <div className="custom-file" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
-            <input type="file" className="custom-file-input" id="customFile" onChange={ this.uploadFile } />
+            <input type="password" id="dpassword" name="dpas" onChange={this.updateInfo} required />
+          </div> }
+          
+          { this.state.isLogin ? null :<div className="custom-file" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+            <input type="file" className="custom-file-input" id="customFile" onChange={ this.uploadFile } required />
             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
-          </div>
+            </div> }
+
+
+          { this.state.isLogin ? null : <div className="form-control mt-2" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
+            <label htmlFor="bday"></label>
+            <input type="date" id="bday" name="birthDate" required onChange={this.updateInfo} />
+            </div> }
           <div className="form-actions">
             <button type="submit">Submit</button>
             <button type="button" onClick={this.switchModeHandler}>
@@ -181,9 +175,6 @@ class AuthPage extends Component {
             </button>
           </div>
         </form>
-        {/* <input type="file" onChange={ this.uploadFile } />
-        <button onClick={ this.upload }>upload</button>
-        { this.state.url ? <img src={ this.state.url } /> : null } */}
       </>
     );
   }

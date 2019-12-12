@@ -11,6 +11,7 @@ const schema=buildSchema(`
         username:String!
         email: String!
         password: String!
+        birthDate:String!
         image:String!
     }
 
@@ -35,6 +36,7 @@ const schema=buildSchema(`
         username:String!
         email:String!
         password:String!
+        birthDate:String!
         image:String!
     }
 
