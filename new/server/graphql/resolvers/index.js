@@ -4,16 +4,25 @@ const jwt = require('jsonwebtoken');
 const User=require('../../models/user');
 
 module.exports = {
-    createUser: async args => {
+    createUser: async (args, request )=> {
       try {
-        const existingUser = await User.findOne({ email: args.userInput.email });
-        if (existingUser) {
+        const existingUserEmail = await User.findOne({ email: args.userInput.email });
+        if (existingUserEmail) {
           throw new Error('User exists already.');
         }
+        const existingUserName=await User.findOne({ username:args.userInput.username })
+        if(existingUserName){
+          throw new Error("Username already exists");
+        }
+        console.log(args);
         const hashedPassword = await bcrypt.hash(args.userInput.password, 12);
         const user = new User({
+            fname:args.userInput.fname,
+            lname:args.userInput.lname,
+            username:args.userInput.username,
             email: args.userInput.email,
-            password: hashedPassword
+            password: hashedPassword,
+            profilepic:args.userInput.profilepic,
           });
           const result = await user.save();
 
@@ -40,5 +49,5 @@ module.exports = {
             }
           );
           return { userId: user.id, token: token, tokenExpiration: 1 };
-        },
+        }
       };

@@ -1,10 +1,17 @@
 const { buildSchema }=require('graphql');
+const { gql } =require('apollo-server-express')
 
-module.exports=buildSchema(`
+
+const schema=buildSchema(`
+
     type User {
         _id: ID!
+        fname:String!
+        lname:String!
+        username:String!
         email: String!
         password: String!
+        profilepic:String!
     }
 
     type Blog {
@@ -16,9 +23,19 @@ module.exports=buildSchema(`
         created:String!
     }
 
+    type File {
+        filename: String!
+        mimetype: String!
+        encoding: String!
+    }
+
     input UserInput {
+        fname:String!
+        lname:String!
+        username:String!
         email:String!
         password:String!
+        profilepic:String!
     }
 
     input BlogInput {
@@ -50,3 +67,7 @@ module.exports=buildSchema(`
         mutation: RootMutation
     }
 `);
+
+module.exports={
+    schema
+}
