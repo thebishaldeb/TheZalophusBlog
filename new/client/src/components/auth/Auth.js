@@ -101,7 +101,7 @@ class AuthPage extends Component {
       });
   };
 
-  componentDidMount(){
+  UNSAFE_componentWillMount(){
     CheckAuth()
     .then(()=>{
       this.props.history.push("/home");
