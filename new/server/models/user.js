@@ -36,7 +36,8 @@ const userSchema=new Schema({
         default:"user"
     },
     description:{
-        type:String
+        type:String,
+        default:null
     }
 })
 
