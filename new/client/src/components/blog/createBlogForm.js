@@ -11,7 +11,12 @@ const CreateBlogForm=(props)=>
 
     useEffect(()=>{
         //function for checking if user is valid to continue
-        CheckAuth();
+        CheckAuth()
+        .then(()=>{
+
+        }).catch(()=>{
+            props.history.push("/");
+        })
     },[])
 
     //set all the current value
