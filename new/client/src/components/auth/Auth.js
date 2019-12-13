@@ -101,14 +101,16 @@ class AuthPage extends Component {
       });
   };
 
-  UNSAFE_componentWillMount(){
-    CheckAuth()
-    .then(()=>{
-      this.props.history.push("/home");
-    }).catch((err)=>{
+  // UNSAFE_componentWillMount(){}
+  
+  // componentDidMount(){
+  //   CheckAuth()
+  //   .then(()=>{
+  //     this.props.history.push("/home");
+  //   }).catch((err)=>{
       
-    })
-  }
+  //   })
+  // }
 
   uploadFile=async (e)=>{
     const convertTobase64=(file)=>{
