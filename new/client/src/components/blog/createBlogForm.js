@@ -9,15 +9,15 @@ const CreateBlogForm=(props)=>
     const [ imageUrl, setImageUrl ]=useState('');
     const [ blogBody, setBlogBody ]=useState('');
 
-    useEffect(()=>{
-        //function for checking if user is valid to continue
-        CheckAuth()
-        .then(()=>{
+    // useEffect(()=>{
+    //     //function for checking if user is valid to continue
+    //     CheckAuth()
+    //     .then(()=>{
 
-        }).catch(()=>{
-            props.history.push("/");
-        })
-    },[])
+    //     }).catch(()=>{
+    //         props.history.push("/");
+    //     })
+    // },[])
 
     //set all the current value
     const handleChange=(e, setter)=>{
