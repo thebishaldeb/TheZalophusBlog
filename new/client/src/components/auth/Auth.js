@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Auth.css';
+import CheckAuth from './checkAuth';
 
 class AuthPage extends Component {
   state = {
@@ -99,6 +100,17 @@ class AuthPage extends Component {
         console.log(err);
       });
   };
+
+  // UNSAFE_componentWillMount(){}
+  
+  // componentDidMount(){
+  //   CheckAuth()
+  //   .then(()=>{
+  //     this.props.history.push("/home");
+  //   }).catch((err)=>{
+      
+  //   })
+  // }
 
   uploadFile=async (e)=>{
     const convertTobase64=(file)=>{
