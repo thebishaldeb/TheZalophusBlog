@@ -9,16 +9,6 @@ const CreateBlogForm=(props)=>
     const [ imageUrl, setImageUrl ]=useState('');
     const [ blogBody, setBlogBody ]=useState('');
 
-    // useEffect(()=>{
-    //     //function for checking if user is valid to continue
-    //     CheckAuth()
-    //     .then(()=>{
-
-    //     }).catch(()=>{
-    //         props.history.push("/");
-    //     })
-    // },[])
-
     //set all the current value
     const handleChange=(e, setter)=>{
         setter(e.target.value);
@@ -63,7 +53,7 @@ const CreateBlogForm=(props)=>
 
     return(
         <>
-        <NavbarComponent props={ props } />
+        {/* <NavbarComponent props={ props } /> */}
         <div className="ui main text container segment mt-5">
             <div className="ui huge header">NEW BLOG</div>
             <form className="ui form" onSubmit={ upload }>

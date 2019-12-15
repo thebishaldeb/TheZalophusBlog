@@ -84,10 +84,11 @@ class AuthPage extends Component {
       .then(resData => {
         console.log(resData);
         if(resData.data.login){
+          this.props.changeState(true);
           const { token, userId }=resData.data.login;
           localStorage.setItem("token", token);
           localStorage.setItem("uid", userId);
-          this.props.history.push("/home");
+          this.props.history.push("/");
         }
         else if(resData.data.createUser){
           alert("Registered");
