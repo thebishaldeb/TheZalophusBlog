@@ -43,6 +43,7 @@ class App extends Component {
                 <Route path="/new" render={props=>(
                   this.state.isLoggedin===true ? <CreateBlogForm {...props} /> : (this.state.isLoggedin===false ? <Redirect to="/signup" /> : null)
                 )} />
+                <Route path="/auth/:type" component={ AuthPage } />
               </Switch>
             </main>
         </React.Fragment>

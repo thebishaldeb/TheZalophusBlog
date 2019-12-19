@@ -26,7 +26,6 @@ class AuthPage extends Component {
   };
 
   updateInfo=(e)=>{
-    console.log(e.target.value);
     this.setState({ [e.target.name]:e.target.value })
   }
 
@@ -101,17 +100,15 @@ class AuthPage extends Component {
         console.log(err);
       });
   };
-
-  // UNSAFE_componentWillMount(){}
   
-  // componentDidMount(){
-  //   CheckAuth()
-  //   .then(()=>{
-  //     this.props.history.push("/home");
-  //   }).catch((err)=>{
-      
-  //   })
-  // }
+  componentDidMount(){
+    const type=this.props.match.params.type
+    if(type){
+      type==='login' ? this.setState({ isLogin:true }) : this.setState({ isLogin:false })
+    }else{
+      console.log('Undefined');
+    }
+  }
 
   uploadFile=async (e)=>{
     const convertTobase64=(file)=>{
@@ -131,7 +128,7 @@ class AuthPage extends Component {
 
     convertTobase64(e.target.files[0])
     .then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.setState({ image:res })
     })
   }

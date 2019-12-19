@@ -11,8 +11,8 @@ const NavbarComponent=(props)=>
         props.changeState(false);
         window.location.reload();
       }
-    const login=()=>{
-        props.history.push('/signup');
+    const login=(type)=>{
+        props.history.push(`/auth/${type}`);
     }
 
     return(
@@ -34,7 +34,8 @@ const NavbarComponent=(props)=>
                             <Link to="/new" className="text-dark">New Blog</Link>
                         </Nav.Link>
                     </Nav>
-                    { props.isLoggedin===false ? <button className="btn btn-sm  btn-warning" onClick={ login }>Login</button> : null }
+                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning mr-2" onClick={()=>{ login('login') }}>Login</button> : null }
+                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning" onClick={()=>{ login('signup') }}>Sign Up</button> : null }
                     { props.isLoggedin===true ? <button className="btn btn-sm btn-warning" onClick={ logout }>Logout</button> : null }
                 </Navbar.Collapse>
             </Navbar>
