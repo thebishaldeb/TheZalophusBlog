@@ -12,7 +12,7 @@ const NavbarComponent=(props)=>
         window.location.reload();
       }
     const login=(type)=>{
-        props.history.push(`/auth/${type}`);
+        props.history.push(`/${type}`);
     }
 
     return(
@@ -35,7 +35,7 @@ const NavbarComponent=(props)=>
                         </Nav.Link>
                     </Nav>
                     { props.isLoggedin===false ? <button className="btn btn-sm btn-warning mr-2" onClick={()=>{ login('login') }}>Login</button> : null }
-                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning" onClick={()=>{ login('signup') }}>Sign Up</button> : null }
+                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning" onClick={()=>{ login('register') }}>Sign Up</button> : null }
                     { props.isLoggedin===true ? <button className="btn btn-sm btn-warning" onClick={ logout }>Logout</button> : null }
                 </Navbar.Collapse>
             </Navbar>
