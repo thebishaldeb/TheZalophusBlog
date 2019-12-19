@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Auth.css';
-import CheckAuth from './checkAuth';
 
 class AuthPage extends Component {
   state = {
@@ -22,6 +21,8 @@ class AuthPage extends Component {
   switchModeHandler = () => {
     this.setState(prevState => {
       return { isLogin: !prevState.isLogin };
+    },()=>{
+      this.state.isLogin ? this.props.history.push('/login') : this.props.history.push('/register')
     });
   };
 

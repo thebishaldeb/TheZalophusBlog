@@ -1,12 +1,10 @@
 import React,{ useEffect, useState } from 'react';
-// import AuthContext from '../context/auth-context'
-import NavbarComponent from './navbar/navbar';
 import Blog from './blog/blog';
 import CheckAuth from './auth/checkAuth';
 
 const Homepage=(props)=>
 {
-  console.log(props);
+  // console.log(props);
   const [blogs, setBlogs]=useState([]);
   const getData=(requestBody, type)=>{
     const token=localStorage.getItem("token");
