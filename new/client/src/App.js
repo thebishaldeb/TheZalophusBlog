@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-
 // import AuthPage from './components/auth/Auth';
 import Homepage from './components/Homepage';
 import CreateBlogForm from './components/blog/createBlogForm';
@@ -8,7 +7,7 @@ import CheckAuth from './components/auth/checkAuth';
 import NavbarComponent from './components/navbar/navbar';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
-
+import './App.css';
 class App extends Component {
   state={
     isLoggedin:''

@@ -1,5 +1,7 @@
 import React,{ useState } from 'react';
 import './Auth.css';
+import { Alert, message } from 'antd';
+
 
 const Login=(props)=>{
 
@@ -47,11 +49,11 @@ const Login=(props)=>{
           localStorage.setItem("uid", userId);
           props.history.push("/");
         }else{
-          alert("Error");
+          message.error('USER NOT FOUND')
         }
       })
       .catch(err => {
-        alert("Error");
+        message.error('INCORRECT PASSWORD')
         console.log(err);
       });
     }

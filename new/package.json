@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "antd": "^3.26.3",
     "concurrently": "^5.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.4.0",
+    "style-loader": "^1.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",

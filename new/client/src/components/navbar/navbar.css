@@ -1,0 +1,12 @@
+@import '~antd/dist/antd.css';
+
+.mr-auto {
+margin-left: 120px;
+}
+.text-dark {
+    font-size:25px;
+}
+
+.ant-btn {
+    margin: 20px;
+}

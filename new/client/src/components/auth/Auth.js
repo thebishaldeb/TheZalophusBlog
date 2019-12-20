@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Auth.css';
+import { Alert } from 'antd';
 
 class AuthPage extends Component {
   state = {
@@ -91,9 +92,12 @@ class AuthPage extends Component {
           this.props.history.push("/");
         }
         else if(resData.data.createUser){
-          alert("Registered");
+         < Alert message="Registered" type="success" showIcon />
         }else{
-          alert("Error");
+          <div>
+          <Alert message="Error" type="error" showIcon />
+    
+    </div>
         }
       })
       .catch(err => {

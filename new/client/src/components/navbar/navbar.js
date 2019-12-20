@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom'
-
+import { Button, Menu, Icon } from 'antd';
+import './navbar.css';
 
 const NavbarComponent=(props)=>
 {
@@ -34,9 +35,9 @@ const NavbarComponent=(props)=>
                             <Link to="/new" className="text-dark">New Blog</Link>
                         </Nav.Link>
                     </Nav>
-                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning mr-2" onClick={()=>{ login('login') }}>Login</button> : null }
-                    { props.isLoggedin===false ? <button className="btn btn-sm btn-warning" onClick={()=>{ login('signup') }}>Sign Up</button> : null }
-                    { props.isLoggedin===true ? <button className="btn btn-sm btn-warning" onClick={ logout }>Logout</button> : null }
+                    { props.isLoggedin===false ? <Button type="primary" onClick={()=>{ login('login') }}>Login</Button> : null }
+                    { props.isLoggedin===false ? <Button type="primary" onClick={()=>{ login('signup') }}>Sign Up</Button> : null }
+                    { props.isLoggedin===true ? <Button type="primary" onClick={ logout }>Logout</Button> : null }
                 </Navbar.Collapse>
             </Navbar>
         </React.Fragment>
