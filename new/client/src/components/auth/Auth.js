@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Auth.css';
-import { Alert } from 'antd';
+import { Alert, message } from 'antd';
 
 class AuthPage extends Component {
   state = {
@@ -55,7 +55,7 @@ class AuthPage extends Component {
     if (!this.state.isLogin) {
       const { fname, lname,username,image, dpas, birthDate }=this.state;
       if(dpas!==password){
-        return;
+        return message.error('PASSWORD NOT MATCHED')
       }
 
       requestBody = {
@@ -92,16 +92,13 @@ class AuthPage extends Component {
           this.props.history.push("/");
         }
         else if(resData.data.createUser){
-         < Alert message="Registered" type="success" showIcon />
+          message.success('REGISTERED')
         }else{
-          <div>
-          <Alert message="Error" type="error" showIcon />
-    
-    </div>
+          message.error('ERROR')
         }
       })
       .catch(err => {
-        alert("Error");
+        message.error('ERROR')
         console.log(err);
       });
   };
