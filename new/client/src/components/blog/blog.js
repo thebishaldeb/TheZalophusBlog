@@ -15,11 +15,11 @@ const Blog=(props)=>
                                     <img className="ui rounded image" src={ item.image } alt="pic" />
                                 </div>
                                 <div className="content">
-                                    <Link className="header" to={ '/blog/'+item._id } >{ item.title }</Link>
+                                        <Link style={{width:"440px",wordWrap:"break-word"}} className="header" to={ '/blog/'+item._id } >{ item.title }</Link>
                                     <div className="meta">
                                         <span>{ item.created.toString() }</span>
                                     </div>
-                                    <div className="description">
+                                    <div className="description" style={{width:"440px",wordWrap:"break-word"}}>
                                         <p>{ item.body.substring(0,150) }...</p>
                                     </div>
                                     <div className="extra">
