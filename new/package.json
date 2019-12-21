@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "antd": "^3.26.3",
     "concurrently": "^5.0.0"
   },
   "devDependencies": {
