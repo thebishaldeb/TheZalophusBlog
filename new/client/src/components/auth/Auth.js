@@ -55,7 +55,7 @@ class AuthPage extends Component {
     if (!this.state.isLogin) {
       const { fname, lname,username,image, dpas, birthDate }=this.state;
       if(dpas!==password){
-        return message.error('PASSWORD NOT MATCHED')
+        return message.error('Password Not Matched')
       }
 
       requestBody = {
@@ -92,13 +92,13 @@ class AuthPage extends Component {
           this.props.history.push("/");
         }
         else if(resData.data.createUser){
-          message.success('REGISTERED')
+          message.success('Registered')
         }else{
-          message.error('ERROR')
+          message.error('Error')
         }
       })
       .catch(err => {
-        message.error('ERROR')
+        message.error(''+ err)
         console.log(err);
       });
   };
@@ -169,7 +169,7 @@ class AuthPage extends Component {
             <label htmlFor="dpassword">Confirm Password</label>
             <input type="password" id="dpassword" name="dpas" onChange={this.updateInfo} required />
           </div> }
-          
+          -
           { this.state.isLogin ? null :<div className="custom-file" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
             <input type="file" className="custom-file-input" id="customFile" onChange={ this.uploadFile } required />
             <label className="custom-file-label" htmlFor="customFile">Choose file</label>

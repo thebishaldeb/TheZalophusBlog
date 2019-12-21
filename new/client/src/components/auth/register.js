@@ -35,7 +35,7 @@ class Register extends Component {
 
     const { fname, lname,username,image, dpas, birthDate }=this.state;
     if(dpas!==password){
-        return message.error('PASSWORD NOT MATCHED')
+        return message.error('Password not matched')
         ;
     }
 
@@ -66,13 +66,13 @@ class Register extends Component {
     .then(resData => {
         console.log(resData);
         if(resData.data.createUser){
-          message.success('REGISTERED')
+          message.success('Registered')
         }else{
-          message.error('ERROR')
+          message.error('Error')
         }
       })
       .catch(err => {
-        message.error('ERROR')
+        message.error(''+ err)
         console.log(err);
       });
   };
