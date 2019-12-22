@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Auth.css';
+import { Alert, message } from 'antd';
+
 
 class Register extends Component {
   state = {
@@ -33,7 +35,8 @@ class Register extends Component {
 
     const { fname, lname,username,image, dpas, birthDate }=this.state;
     if(dpas!==password){
-        return;
+        return message.error('Password not matched')
+        ;
     }
 
     let requestBody = {
@@ -63,13 +66,13 @@ class Register extends Component {
     .then(resData => {
         console.log(resData);
         if(resData.data.createUser){
-          alert("Registered");
+          message.success('Registered')
         }else{
-          alert("Error");
+          message.error('Error')
         }
       })
       .catch(err => {
-        alert("Error");
+        message.error(''+ err)
         console.log(err);
       });
   };

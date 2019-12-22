@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Auth.css';
+import { Alert, message } from 'antd';
 
 class AuthPage extends Component {
   state = {
@@ -54,7 +55,7 @@ class AuthPage extends Component {
     if (!this.state.isLogin) {
       const { fname, lname,username,image, dpas, birthDate }=this.state;
       if(dpas!==password){
-        return;
+        return message.error('Password Not Matched')
       }
 
       requestBody = {
@@ -91,13 +92,13 @@ class AuthPage extends Component {
           this.props.history.push("/");
         }
         else if(resData.data.createUser){
-          alert("Registered");
+          message.success('Registered')
         }else{
-          alert("Error");
+          message.error('Error')
         }
       })
       .catch(err => {
-        alert("Error");
+        message.error(''+ err)
         console.log(err);
       });
   };
@@ -168,7 +169,7 @@ class AuthPage extends Component {
             <label htmlFor="dpassword">Confirm Password</label>
             <input type="password" id="dpassword" name="dpas" onChange={this.updateInfo} required />
           </div> }
-          
+          -
           { this.state.isLogin ? null :<div className="custom-file" style={{ display:this.state.isLogin ? 'none' : 'inline' }}>
             <input type="file" className="custom-file-input" id="customFile" onChange={ this.uploadFile } required />
             <label className="custom-file-label" htmlFor="customFile">Choose file</label>

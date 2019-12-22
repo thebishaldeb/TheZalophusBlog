@@ -1,5 +1,7 @@
 import React,{ useState } from 'react';
 import './Auth.css';
+import { Alert, message,Button } from 'antd';
+
 
 const Login=(props)=>{
 
@@ -10,8 +12,15 @@ const Login=(props)=>{
         setter(e.target.value);
     }
 
+    const success = () => {
+      const hide = message.loading('Loading...', 0);
+      // Dismiss manually and asynchronously
+      setTimeout(hide,100);
+    };
+
     const submit=(e)=>{
-        e.preventDefault();
+        e.preventDefault();          
+        success();
         let requestBody = {
             query: `
               query {
@@ -33,12 +42,12 @@ const Login=(props)=>{
       .then(res => {
         console.log(res);
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+          throw new Error('Failed');
         }
         return res.json();
       })
       .then(resData => {
-        // console.log(resData);
+           console.log(resData);
         if(resData.data.login){
             // alert('Loggedin');
           props.changeState(true);
@@ -47,11 +56,11 @@ const Login=(props)=>{
           localStorage.setItem("uid", userId);
           props.history.push("/");
         }else{
-          alert("Error");
+          message.error('user not found');
         }
       })
       .catch(err => {
-        alert("Error");
+        message.error('' + err);
         console.log(err);
       });
     }
